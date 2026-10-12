@@ -1,0 +1,390 @@
+@import "tailwindcss";
+
+/* Self-hosted IBM Plex Sans is loaded in main.tsx, including Hungarian glyphs. */
+/* No dark mode -- light theme only (D-02) */
+
+@theme inline {
+  --font-heading:
+    "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* shadcn color mappings */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Sidebar theme tokens */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Chart colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Radius tokens */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: var(--radius);
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Workshop custom color tokens */
+  --color-bg: #f7f8fa;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #171b21;
+  --color-text: #20252d;
+  --color-text-secondary: #626b76;
+  --color-text-sidebar: #f7f8fa;
+  --color-text-sidebar-muted: #a1a1aa;
+  --color-workshop-accent: #ff8803;
+  --color-accent-light: #fff3e0;
+  --color-accent-hover: #b45309;
+  --color-primary-hover: #f07800;
+  --color-border-strong: #d4d4d8;
+
+  /* Stock indicator colors */
+  --color-stock-ok: #16a34a;
+  --color-stock-ok-bg: #f0fdf4;
+  --color-stock-warning: #ea580c;
+  --color-stock-warning-bg: #fff7ed;
+  --color-stock-critical: #dc2626;
+  --color-stock-critical-bg: #fef2f2;
+
+  /* Semantic colors */
+  --color-info: #2563eb;
+  --color-info-bg: #eff6ff;
+
+  /* Workflow status tokens */
+  --color-status-planned: #2563eb;
+  --color-status-planned-bg: #eff6ff;
+  --color-status-production: #c45f00;
+  --color-status-production-bg: #fff3e0;
+  --color-status-qc: #b91c1c;
+  --color-status-qc-bg: #fef2f2;
+  --color-status-filling: #0e7490;
+  --color-status-filling-bg: #ecfeff;
+  --color-status-packaging: #7c3aed;
+  --color-status-packaging-bg: #f3e8ff;
+  --color-status-complete: #15803d;
+  --color-status-complete-bg: #f0fdf4;
+  --color-status-neutral: #626b76;
+  --color-status-neutral-bg: #f0f2f5;
+  --color-status-sync: #036e9b;
+  --color-status-sync-bg: #f0f9ff;
+  --color-action-danger: #dc2626;
+
+  /* Layout */
+  --sidebar-width: 240px;
+
+  --page-gutter: 1rem;
+
+  /* Semantic elevation scale */
+  --z-content: 0;
+  --z-sticky: 40;
+  --z-sidebar: 60;
+  --z-overlay: 80;
+  --z-modal: 90;
+  --z-popover: 100;
+  --z-toast: 110;
+  --z-tooltip: 120;
+}
+
+/* Workshop Light Theme -- ONLY light theme, no dark mode (D-02) */
+:root {
+  --background: #f7f8fa;
+  --foreground: #20252d;
+  --card: #ffffff;
+  --card-foreground: #20252d;
+  --popover: #ffffff;
+  --popover-foreground: #20252d;
+  --primary: #ff8803;
+  --primary-foreground: #20252d;
+  --secondary: #f0f2f5;
+  --secondary-foreground: #20252d;
+  --muted: #f0f2f5;
+  --muted-foreground: #626b76;
+  --accent: #ff8803;
+  --accent-foreground: #20252d;
+  --destructive: #dc2626;
+  --border: #dfe3e8;
+  --input: #cbd1d9;
+  --ring: #ff8803;
+  --radius: 0.5rem;
+
+  /* Chart colors (Workshop palette) */
+  --chart-1: #ff8803;
+  --chart-2: #20252d;
+  --chart-3: #626b76;
+  --chart-4: #a1a1aa;
+  --chart-5: #dfe3e8;
+
+  /* Sidebar (dark sidebar per D-03) */
+  --sidebar: #171b21;
+  --sidebar-foreground: #f7f8fa;
+  --sidebar-primary: #ff8803;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 136, 3, 0.12);
+  --sidebar-accent-foreground: #ff8803;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #ff8803;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-sm text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    @apply font-sans;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+  }
+  code,
+  kbd,
+  samp,
+  pre {
+    @apply font-sans;
+  }
+  table,
+  [data-slot="data-table-root"] {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer base {
+  ::selection {
+    background: #ff880333;
+    color: var(--foreground);
+  }
+  /* Interactive native controls share the same affordance as Button. */
+  :where(
+    button,
+    a[href],
+    summary,
+    select,
+    [role="button"],
+    [role="tab"],
+    [role="option"],
+    [role="menuitem"],
+    [role="menuitemcheckbox"],
+    [role="checkbox"],
+    [role="switch"],
+    input[type="checkbox"],
+    input[type="radio"]
+  ) {
+    cursor: pointer;
+  }
+  :where(
+    button,
+    input,
+    select,
+    textarea,
+    [role="button"],
+    [role="option"]
+  ):disabled,
+  :where([aria-disabled="true"], [data-disabled="true"]) {
+    cursor: not-allowed;
+  }
+  :where(
+    button,
+    a[href],
+    summary,
+    [role="button"],
+    [role="tab"]
+  ):focus-visible {
+    outline: 2px solid var(--foreground);
+    outline-offset: 2px;
+  }
+  input,
+  textarea {
+    caret-color: var(--foreground);
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #c4cad2 transparent;
+  }
+  aside {
+    scrollbar-color: #424955 transparent;
+  }
+}
+
+@media (min-width: 640px) {
+  :root {
+    --page-gutter: 1.5rem;
+  }
+}
+@media (min-width: 1536px) {
+  :root {
+    --page-gutter: 2rem;
+  }
+}
+
+/* Short state transitions preserve context without delaying interaction. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-slot="tabs-content"][data-state="active"] {
+    animation: panel-arrive 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  button[aria-pressed]::after {
+    transition:
+      opacity 120ms ease-out,
+      transform 150ms ease-out;
+    transform: scaleX(0.65);
+  }
+  button[aria-pressed="true"]::after {
+    transform: scaleX(1);
+  }
+  @supports (interpolate-size: allow-keywords) {
+    details {
+      interpolate-size: allow-keywords;
+    }
+    details::details-content {
+      block-size: 0;
+      overflow: clip;
+      opacity: 0;
+      transition:
+        block-size 160ms ease-out,
+        opacity 120ms ease-out,
+        content-visibility 160ms allow-discrete;
+    }
+    details[open]::details-content {
+      block-size: auto;
+      opacity: 1;
+    }
+  }
+}
+@keyframes panel-arrive {
+  from {
+    opacity: 0.65;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* One density contract for main lists, detail tables and inline editors. */
+table[data-slot="table"] {
+  --table-row-bg: var(--card);
+  --table-stripe: #f8f9fb;
+  --table-hover: #eef2f6;
+  --table-selected: #fff1df;
+  font-size: 14px;
+  line-height: 20px;
+}
+table[data-slot="table"] > thead > tr > th {
+  height: 44px;
+  padding: 6px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--foreground);
+  background: var(--muted);
+  vertical-align: middle;
+}
+table[data-slot="table"] > tbody > tr {
+  background-color: var(--table-row-bg);
+}
+table[data-slot="table"]
+  > tbody
+  > tr:nth-child(even):not([data-stripe]):not([data-detail-row]),
+table[data-slot="table"] > tbody > tr[data-stripe="alternate"] {
+  --table-row-bg: var(--table-stripe);
+}
+table[data-slot="table"] > tbody > tr:hover {
+  --table-row-bg: var(--table-hover);
+}
+table[data-slot="table"] > tbody > tr[data-state="selected"],
+table[data-slot="table"]
+  > tbody
+  > tr:has(> td > [role="checkbox"][aria-checked="true"]) {
+  --table-row-bg: var(--table-selected);
+}
+table[data-slot="table"] > tbody > tr[data-detail-row] {
+  --table-row-bg: var(--table-stripe);
+}
+table[data-slot="table"] > tbody > tr > td:not([colspan]),
+table[data-slot="table"] > tfoot > tr > td {
+  height: 44px;
+  padding: 6px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+/* Pinned cells stay opaque while following their row's hover/selection. */
+table[data-slot="table"] > tbody > tr > td.sticky {
+  background-color: var(--table-row-bg);
+}
+table[data-slot="table"] > tbody > tr > td [data-slot="badge"] {
+  font-size: 14px;
+}
+@media (pointer: coarse) {
+  table[data-slot="table"]
+    :is(button, [role="button"]):not([data-column-resize-handle]):not(
+      [data-adjacent-column-resize-handle]
+    ) {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Content defines widths. Additional columns scroll instead of compressing data. */
+table[data-slot="table"]:not([data-table-layout="editor"]) {
+  width: 100%;
+  min-width: 100%;
+  table-layout: auto;
+}
+table[data-slot="table"]:not([data-table-layout="editor"])
+  > :is(thead, tbody, tfoot)
+  > tr
+  > :is(th, td):not([colspan]) {
+  white-space: nowrap;
+  width: auto;
+  max-width: none;
+}
+table[data-slot="table"]:not([data-table-layout="editor"])
+  > tbody
+  > tr:not([data-detail-row])
+  > td:not([colspan])
+  :is(.truncate, [class*="line-clamp-"]) {
+  white-space: nowrap;
+  max-width: none;
+  overflow: visible;
+  text-overflow: clip;
+  -webkit-line-clamp: unset;
+}
+/* Fill the available width; intrinsic column minimums trigger local scrolling. */
+[data-slot="table-container"] {
+  width: 100%;
+  max-width: 100%;
+}
